@@ -10,6 +10,8 @@ import android.widget.BaseAdapter
 import android.widget.ListView
 import android.widget.TextView
 import com.santhosh.mykotlin.R
+import kotlinx.android.synthetic.main.activity_list_view.*
+import kotlinx.android.synthetic.main.list_item.view.*
 import org.w3c.dom.Text
 
 class ListViewActivity : AppCompatActivity() {
@@ -22,8 +24,8 @@ class ListViewActivity : AppCompatActivity() {
                 "Apple", "Banana", "Orange"
         )
 
-        val listView = findViewById<ListView>(R.id.list_view)
-        listView.adapter = MyAdapter(this, list)
+        //val listView = findViewById<ListView>(R.id.list_view)
+        list_view.adapter = MyAdapter(this, list)
 
     }
 
@@ -41,15 +43,14 @@ class ListViewActivity : AppCompatActivity() {
             val view: View
 
             if (convertView == null) {
-                view = LayoutInflater.from(mContext).inflate(R.layout.list_item, parent, false)
-                val title = view.findViewById<TextView>(R.id.title)
-                val description = view.findViewById<TextView>(R.id.description)
-                view.tag = ViewHolder(title, description)
+                view = LayoutInflater.from(parent!!.context).inflate(R.layout.list_item, parent, false)
+                view.tag = ViewHolder(view.title, view.description)
             } else {
                 view = convertView
             }
 
             val viewHolder = view.tag as ViewHolder
+
             viewHolder.title.text = getItem(position)
 
             return view;

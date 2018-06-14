@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import com.santhosh.mykotlin.activity.ListViewActivity
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -12,8 +13,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val listView = findViewById<TextView>(R.id.list_view);
-        listView.setOnClickListener {
+        list_view.setOnClickListener {
             val intent = Intent(this, ListViewActivity::class.java)
             startActivity(intent)
         }
