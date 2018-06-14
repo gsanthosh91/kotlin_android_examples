@@ -7,12 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
-import android.widget.ListView
 import android.widget.TextView
 import com.santhosh.mykotlin.R
 import kotlinx.android.synthetic.main.activity_list_view.*
 import kotlinx.android.synthetic.main.list_item.view.*
-import org.w3c.dom.Text
 
 class ListViewActivity : AppCompatActivity() {
 
@@ -24,7 +22,6 @@ class ListViewActivity : AppCompatActivity() {
                 "Apple", "Banana", "Orange"
         )
 
-        //val listView = findViewById<ListView>(R.id.list_view)
         list_view.adapter = MyAdapter(this, list)
 
     }
