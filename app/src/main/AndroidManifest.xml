@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.santhosh.mykotlin">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -19,6 +20,10 @@
         <activity
             android:name=".activity.ListViewActivity"
             android:label="List View"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".activity.recycler_view.RecyclerViewActivity"
+            android:label="Recycler View"
             android:parentActivityName=".MainActivity" />
     </application>
 

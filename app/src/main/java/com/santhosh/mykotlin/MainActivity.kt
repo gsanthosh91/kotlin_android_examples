@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import com.santhosh.mykotlin.activity.ListViewActivity
+import com.santhosh.mykotlin.activity.recycler_view.RecyclerViewActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -15,6 +16,11 @@ class MainActivity : AppCompatActivity() {
 
         list_view.setOnClickListener {
             val intent = Intent(this, ListViewActivity::class.java)
+            startActivity(intent)
+        }
+
+        recyclerview.setOnClickListener {
+            val intent = Intent(this, RecyclerViewActivity::class.java)
             startActivity(intent)
         }
     }
