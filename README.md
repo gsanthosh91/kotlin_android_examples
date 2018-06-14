@@ -1,2 +1,2 @@
-# kotlin_android_examples
+# Kotlin Android Examples
 Various examples for Kotlin
