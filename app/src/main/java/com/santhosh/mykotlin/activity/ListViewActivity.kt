@@ -10,6 +10,7 @@ import android.widget.BaseAdapter
 import android.widget.ListView
 import android.widget.TextView
 import com.santhosh.mykotlin.R
+import org.w3c.dom.Text
 
 class ListViewActivity : AppCompatActivity() {
 
@@ -37,10 +38,20 @@ class ListViewActivity : AppCompatActivity() {
         }
 
         override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-            val view = LayoutInflater.from(mContext).inflate(R.layout.list_item, parent, false)
-            val title = view.findViewById<TextView>(R.id.title)
+            val view: View
 
-            title.text = getItem(position)
+            if (convertView == null) {
+                view = LayoutInflater.from(mContext).inflate(R.layout.list_item, parent, false)
+                val title = view.findViewById<TextView>(R.id.title)
+                val description = view.findViewById<TextView>(R.id.description)
+                view.tag = ViewHolder(title, description)
+            } else {
+                view = convertView
+            }
+
+            val viewHolder = view.tag as ViewHolder
+            viewHolder.title.text = getItem(position)
+
             return view;
         }
 
@@ -54,6 +65,10 @@ class ListViewActivity : AppCompatActivity() {
 
         override fun getCount(): Int {
             return list.size;
+        }
+
+        private class ViewHolder(val title: TextView, val description: TextView) {
+
         }
 
     }
