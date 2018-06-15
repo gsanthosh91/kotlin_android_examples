@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.santhosh.mykotlin.R
 import kotlinx.android.synthetic.main.list_item.view.*
-import java.util.ArrayList
 
 /**
  * Created by santhosh@appoets.com on 14-06-2018.
@@ -22,12 +21,21 @@ class MyAdapter(private val list: List<RecyclerViewActivity.Video>) : RecyclerVi
         return list.count()
     }
 
-    override fun onBindViewHolder(holder: MyAdapter.CustomViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
         val video = list.get(position)
-        holder.view.title.text = video.name
+        holder.rowView.title.text = video.name
+
+        holder.video = video
     }
 
-    class CustomViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
+    class CustomViewHolder(val rowView: View, var video: RecyclerViewActivity.Video? = null) : RecyclerView.ViewHolder(rowView) {
+
+        init {
+            rowView.setOnClickListener {
+                println(video?.name)
+            }
+        }
 
     }
 }
+
