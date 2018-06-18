@@ -22,17 +22,17 @@ class MyAdapter(private val list: List<RecyclerViewActivity.Video>) : RecyclerVi
     }
 
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
-        val video = list.get(position)
-        holder.rowView.title.text = video.name
+        val item = list.get(position)
+        holder.rowView.title.text = item.name
 
-        holder.video = video
+        holder.item = item
     }
 
-    class CustomViewHolder(val rowView: View, var video: RecyclerViewActivity.Video? = null) : RecyclerView.ViewHolder(rowView) {
+    class CustomViewHolder(val rowView: View, var item: RecyclerViewActivity.Video? = null) : RecyclerView.ViewHolder(rowView) {
 
         init {
             rowView.setOnClickListener {
-                println(video?.name)
+                println(item?.name)
             }
         }
 
