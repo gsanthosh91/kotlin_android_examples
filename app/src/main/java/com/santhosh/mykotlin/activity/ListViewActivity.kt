@@ -41,7 +41,7 @@ class ListViewActivity : AppCompatActivity() {
 
             if (convertView == null) {
                 view = LayoutInflater.from(parent!!.context).inflate(R.layout.list_item, parent, false)
-                view.tag = ViewHolder(view.title, view.description)
+                view.tag = ViewHolder(view)
             } else {
                 view = convertView
             }
@@ -65,8 +65,8 @@ class ListViewActivity : AppCompatActivity() {
             return list.size;
         }
 
-        private class ViewHolder(val title: TextView, val description: TextView) {
-
+        private class ViewHolder(val view : View) {
+            val title = view.title
         }
 
     }
